@@ -69,14 +69,7 @@ Puedes acceder a la consola de la base de datos H2 para ver los datos almacenado
 
 1. Ejecuta la aplicación con `mvn spring-boot:run`.
 2. Accede a la consola de la base de datos H2 para verificar los datos.
-3. Obtén las estadísticas de distancias almacenadas:
-
-   ```bash
-   curl http://localhost:8080/api/v1/distances/stats
-   ```
-## Primer Uso
-
-Al subir el Api, se puede realizar mendiante postman el consumo del servicio:
+3. Al subir el Api, se puede realizar mendiante postman el consumo del servicio:
 
 ```
 curl --location 'http://localhost:8080/api/geolocation/stats'
