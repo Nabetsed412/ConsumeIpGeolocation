@@ -56,14 +56,6 @@ A continuación se presentan los endpoints principales de la API:
 
    Este endpoint devuelve la distancia mínima, máxima y promedio calculadas a partir de los registros almacenados en la base de datos.
 
-2. **Consultar geolocalización por IP**:
-
-   ```http
-   GET /api/v1/geolocation/{ip}
-   ```
-
-   Este endpoint recibe una dirección IP como parámetro y devuelve la información de geolocalización asociada a esa IP.
-
 ## Base de Datos H2
 
 Puedes acceder a la consola de la base de datos H2 para ver los datos almacenados y realizar consultas:
@@ -82,6 +74,29 @@ Puedes acceder a la consola de la base de datos H2 para ver los datos almacenado
    ```bash
    curl http://localhost:8080/api/v1/distances/stats
    ```
+## Primer Uso
+
+Al subir el Api, se puede realizar mendiante postman el consumo del servicio:
+
+```
+curl --location 'http://localhost:8080/api/geolocation/stats'
+```
+
+Obteniendo como resultado  las estadisticas de acuerdo a los registros almacenados en la base de datos H2, la estructura de respuesta es (ejemplo):
+
+```
+{
+    "minDistance": 2996.0,
+    "maxDistance": 9994.0,
+    "averageDistance": 9498.0,
+    "minDistanceCountry": "Brazil",
+    "maxDistanceCountry": "Spain"
+}
+```
+
+## Adicionales
+
+Se creo un archivo *scriptTest.js* que contiene un script para realizar test de fluctuacion de trafico, este fue implementado en el docker y se podra visualizar y/o modificar para sus respectivas pruebas. 
 
 ## Licencia
 
