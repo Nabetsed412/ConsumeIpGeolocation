@@ -91,6 +91,18 @@ Obteniendo como resultado  las estadisticas de acuerdo a los registros almacenad
 
 Se creo un archivo *scriptTest.js* que contiene un script para realizar test de fluctuacion de trafico, este fue implementado en el docker y se podra visualizar y/o modificar para sus respectivas pruebas. 
 
+
+## Durante el Desarrollo
+
+1. inicialmente la base de datos H2 se utilizo como tipo server para consultar los datos que fueron insertados desde la api Java.
+2. En la consulta que de promedio se tenia la siguiente consulta:
+   /*@Query("SELECT AVG(tmp2.a) FROM (SELECT tmp.ic * tmp.distance AS a FROM (SELECT SUM(g.iterationCount) AS ic, g.distance, g.countryName FROM Geolocation as g GROUP BY g.distance, g.countryName) AS tmp) AS tmp2")
+    Double findAverageDistance();*/ 
+3. Se implemento una especie de Rate-Limiting para controlar la cantidad de solicitudes que un usuario.
+4. Se realizaron pruebas automaticas de consumo para validar el rendimiento del aplicativo.
+5. Se creo un docker para ambas aplicaciones y la configuracion de red quedo la misma para ambas, adicionalmente se creo un docker para las pruebas de rendimiento.
+
+
 ## Licencia
 
 Uso personal
